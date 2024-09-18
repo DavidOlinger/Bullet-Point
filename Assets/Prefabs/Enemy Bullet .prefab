@@ -101,9 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velCoef: 1
   accCoef: 1
-  jerkCoef: 1
+  jerkCoef: 60
   forceAngle: 180
-  updatesPerSecond: 50
+  targetingPlayer: 0
 --- !u!50 &133971317758328448
 Rigidbody2D:
   serializedVersion: 4
