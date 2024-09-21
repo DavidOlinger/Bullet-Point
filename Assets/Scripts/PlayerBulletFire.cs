@@ -21,7 +21,10 @@ public class PlayerBulletFire : MonoBehaviour
         
         rb.velocity = new Vector2(0, moveSpeed);
 
-
+        if (transform.position.y > 15)
+        {
+            Destroy(gameObject);
+        }
 
 
     }
