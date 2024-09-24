@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3.5019, z: 0}
-  m_LocalScale: {x: 0.29625, y: 0.29625, z: 0.29625}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4284345301299566716, guid: b92d82f02a872a947aa21beca5cc0f74, type: 3}
   bulletSpawnPos: 0.35
-  spawnCooldown: 0.5
+  spawnCooldown: 0.07
 --- !u!114 &-1610585679197876877
 MonoBehaviour:
   m_ObjectHideFlags: 0

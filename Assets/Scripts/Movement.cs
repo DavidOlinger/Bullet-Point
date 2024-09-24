@@ -20,8 +20,8 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        speedX = Input.GetAxisRaw("Horizontal") * moveSpeed;
-        speedY = Input.GetAxisRaw("Vertical") * moveSpeed;
+            speedX = Input.GetAxisRaw("Horizontal") * moveSpeed;
+            speedY = Input.GetAxisRaw("Vertical") * moveSpeed;
 
     }
 
