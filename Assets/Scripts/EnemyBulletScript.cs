@@ -12,7 +12,6 @@ public class EnemyBulletScript : MonoBehaviour
     private Vector2 baseVector; 
     Vector2 dirVector; //direction vector 
     public float forceAngle = 0f; //angle of movement
-    public bool targetingPlayer = false;
     private GameObject player;
 
 
@@ -23,19 +22,6 @@ public class EnemyBulletScript : MonoBehaviour
         // fixedTimestep = 1f / updatesPerSecond; //setting starting values
         baseVector = new Vector2(0, 1);
         player = GameObject.FindWithTag("Player");
-
-        if (targetingPlayer && (player != null)) //add option for a bullet to spawn with its rotation set to point at the player.
-        { 
-            Vector3 directionToTarget = transform.position - player.transform.position;
-            forceAngle = Vector3.Angle(-transform.up, directionToTarget);
-            if (player.transform.position.x > transform.position.x) 
-            { 
-                forceAngle = -forceAngle;
-            }
-
-            Debug.Log(transform.position - player.transform.position);
-        }
-
         dirVector = vecRotate(baseVector, forceAngle);
         transform.Rotate(Vector3.forward, forceAngle);
         bulletBody = GetComponent<Rigidbody2D>(); //finding instances of components
@@ -48,7 +34,7 @@ public class EnemyBulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y < -10 || transform.position.y > 10)
+        if (transform.position.y < -10 || transform.position.y > 10 || transform.position.x < -10 || transform.position.x > 10)
         {
             Destroy(gameObject);
         }

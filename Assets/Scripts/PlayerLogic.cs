@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class PlayerLogic : MonoBehaviour
 {
-    public int hp;
+    
     public float invulCooldownLength; 
     private float invulCooldown;
     public bool isInvulnerable;
     SpriteRenderer spriteRenderer;
     Color startColor;
+    LevelManagerScript levelManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +21,7 @@ public class PlayerLogic : MonoBehaviour
         invulCooldown = 0;
         spriteRenderer = GetComponent<SpriteRenderer>();
         startColor = spriteRenderer.color;
+        levelManager = GameObject.FindGameObjectWithTag("Level Manager").GetComponent<LevelManagerScript>();
     }
 
     // Update is called once per frame
@@ -43,7 +47,7 @@ public class PlayerLogic : MonoBehaviour
         if (collision.gameObject.CompareTag("EnemyBullet") && !isInvulnerable)
         {
             //Debug.Log("player Hit");
-            hp--;
+            levelManager.hp--;
             invulCooldown = invulCooldownLength;
             isInvulnerable = true;
             spriteRenderer.color = new Color(1f, 1f, 1f, 0.1f);

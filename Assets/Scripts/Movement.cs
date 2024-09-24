@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
 {
 
     public float moveSpeed;
-    float speedX, speedY;
+    public float ySpeedScale;
     Rigidbody2D rb;
+    public float playerBounds;
+    Vector2 moveDirection = Vector2.zero;
 
     Transform t;
 
@@ -20,13 +24,27 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-            speedX = Input.GetAxisRaw("Horizontal") * moveSpeed;
-            speedY = Input.GetAxisRaw("Vertical") * moveSpeed;
+      
 
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(speedX, speedY);
+        if (transform.position.x > playerBounds && moveDirection.x > 0)
+        {
+            moveDirection.x = 0;
+        }
+        if (transform.position.x < -playerBounds && moveDirection.x < 0)
+        {
+            moveDirection.x = 0;
+        }
+        rb.velocity = moveDirection * moveSpeed;
+    }
+
+    void OnPlayerMove(InputValue value)
+    {
+        moveDirection = value.Get<Vector2>();
+        moveDirection.y = moveDirection.y * ySpeedScale;
+
     }
 }

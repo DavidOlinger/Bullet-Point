@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6021565173695651725
+--- !u!1 &7805607234437020868
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2980607481945326740}
-  - component: {fileID: 6111865254291102321}
-  - component: {fileID: 6195544523170336100}
-  - component: {fileID: 4940179401343865167}
-  - component: {fileID: 4990589799097271130}
+  - component: {fileID: 2162732189641688979}
+  - component: {fileID: 3995196400780620675}
+  - component: {fileID: 466125120952861904}
+  - component: {fileID: 6219267322615437644}
+  - component: {fileID: 80204372543085316}
   m_Layer: 0
   m_Name: EnemySniper
   m_TagString: Enemy
@@ -20,28 +20,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2980607481945326740
+--- !u!4 &2162732189641688979
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6021565173695651725}
+  m_GameObject: {fileID: 7805607234437020868}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.7513, y: -1.511, z: 0}
-  m_LocalScale: {x: 0.49976295, y: -1.4632688, z: -1}
+  m_LocalPosition: {x: 4.0113, y: 7.0037, z: 0}
+  m_LocalScale: {x: 0.6823269, y: -1.9978023, z: -1.365301}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6111865254291102321
+--- !u!212 &3995196400780620675
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6021565173695651725}
+  m_GameObject: {fileID: 7805607234437020868}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -87,13 +87,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &6195544523170336100
+--- !u!60 &466125120952861904
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6021565173695651725}
+  m_GameObject: {fileID: 7805607234437020868}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -136,14 +136,14 @@ PolygonCollider2D:
       - {x: 0.0009791851, y: -0.25976616}
       - {x: 0.5216858, y: -0.0002553258}
   m_UseDelaunayMesh: 0
---- !u!50 &4940179401343865167
+--- !u!50 &6219267322615437644
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6021565173695651725}
+  m_GameObject: {fileID: 7805607234437020868}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -163,19 +163,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4990589799097271130
+--- !u!114 &80204372543085316
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6021565173695651725}
+  m_GameObject: {fileID: 7805607234437020868}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57daa2a435e40764a816c79fc1b15feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  bullet: {fileID: 8731880467853303004, guid: 227561137748b3b4f8e85fa61f9c9cb2, type: 3}
+  numBullets: 1
+  spread: 1
+  direction: 0
+  numWaves: 12
+  waveDelay: 0.07
+  waveOffset: 0
+  targetingPlayer: 1
+  bullet: {fileID: 1878825702976744942, guid: b30e82ba5ea2ab34bbf80c54207ab495, type: 3}
+  explosion: {fileID: 5443071555548682609, guid: 6009056554e318d4f9a556f45e6ed94d, type: 3}
   bulletSpawnPos: -0.42
-  spawnCooldown: 3
+  spawnCooldown: 2
+  SideToSideMover: 0
+  inVertPosition: 0
+  VertPosition: 4
+  HoverMover: 1
+  hitCounter: 0
+  maxHealth: 15
+  scoreOnKill: 2000

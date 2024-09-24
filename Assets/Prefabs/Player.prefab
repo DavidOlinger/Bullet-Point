@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3500450896844277796}
   - component: {fileID: 6126737780564881817}
   - component: {fileID: -1610585679197876877}
+  - component: {fileID: 6249906741838133057}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -31,8 +32,8 @@ Transform:
   m_GameObject: {fileID: 8309641371620288430}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.5019, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalPosition: {x: -0.0683, y: -3.6899, z: 0}
+  m_LocalScale: {x: 0.47741288, y: 0.47741288, z: 0.47741288}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: bcb1d474d283eaa4d96662e781497ce4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b376fcb6bda93943836dc3daa038fbb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,7 +126,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.75, y: 1.62}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -173,7 +174,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 756aca9e887d6264a92216200d3193f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 3
+  ySpeedScale: 0.8
+  playerBounds: 4.3
 --- !u!114 &6126737780564881817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,3 +207,33 @@ MonoBehaviour:
   hp: 3
   invulCooldownLength: 0.25
   isInvulnerable: 0
+--- !u!114 &6249906741838133057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8309641371620288430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: c7a7b27a5cacf8f4e9c0b07ad257ef53, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PlayerControls
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

@@ -7,16 +7,22 @@ public class TriangleMoveAndShoot : MonoBehaviour
 {
 
     public float moveSpeed;
-    Rigidbody2D rb;
+   
     public int numBullets;
     public float spread;
     public float direction;
     public int numWaves;
     public float waveDelay;
+    public float waveOffset;
+    public bool targetingPlayer = false;
 
     public GameObject bullet;
-    public float bulletSpawnPos = 1;
+    Rigidbody2D rb;
+    GameObject player;
+    LevelManagerScript levelManager;
+    public GameObject explosion;
 
+    public float bulletSpawnPos = 1;
     public float spawnCooldown = 1;
     private float timeSinceLastSpawn = 0;
 
@@ -28,13 +34,16 @@ public class TriangleMoveAndShoot : MonoBehaviour
 
     public int hitCounter = 0;
     public int maxHealth;
-
+    public int scoreOnKill;
+    
     
 
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
+        levelManager = GameObject.FindGameObjectWithTag("Level Manager").GetComponent<LevelManagerScript>();
     }
 
 
@@ -53,18 +62,31 @@ public class TriangleMoveAndShoot : MonoBehaviour
                 moveSpeed = moveSpeed * -1;
             }
         }
-        
+
+        if (targetingPlayer && (player != null)) //add option for a bullet to spawn with its rotation set to point at the player.
+        {
+            Vector3 directionToTarget = transform.position - player.transform.position;
+            direction = -Vector3.Angle(transform.up, directionToTarget);
+            if (player.transform.position.x > transform.position.x)
+            {
+                direction = -direction;
+            }
+            
+        }
 
         timeSinceLastSpawn += Time.deltaTime;
 
         if (timeSinceLastSpawn > spawnCooldown && inVertPosition)
             {
-                                //Vector3 playerPosition = transform.position;
+            //Vector3 playerPosition = transform.position;
 
-                                //Vector3 spawnPosition = playerPosition + new Vector3(0, bulletSpawnPos, 0);
+            //Vector3 spawnPosition = playerPosition + new Vector3(0, bulletSpawnPos, 0);
 
-                                //Instantiate(bullet, spawnPosition, Quaternion.identity);
-            StartCoroutine(FireBulletSpread(numBullets, spread, direction, numWaves, waveDelay));
+            //Instantiate(bullet, spawnPosition, Quaternion.identity);
+
+
+           
+            StartCoroutine(FireBulletSpread(numBullets, spread, direction, numWaves, waveDelay, waveOffset));
 
                 timeSinceLastSpawn = 0;
             }
@@ -97,19 +119,25 @@ public class TriangleMoveAndShoot : MonoBehaviour
         
     }
 
-    IEnumerator FireBulletSpread(int numBullets, float spread, float direction, int numWaves, float waveDelay) //this is special!
+    IEnumerator FireBulletSpread(int numBullets, float spread, float direction, int numWaves, float waveDelay, float waveOffset) //this is special!
         //this is a coroutine, which means we can manage time with it. This is powerful but the implementation is a bit strange.
         //look up some documentation on it when you get the chance.
     {
         Vector3 playerPosition = transform.position;
-
+        if (numBullets > 1) { numBullets++; } //FIXME?
         Vector3 spawnPosition = playerPosition + new Vector3(0, bulletSpawnPos, 0);
         direction += 180; //FIXME
         for (int i = 0; i < numWaves; i++)
         {
             for (int j = 0; j < numBullets; j++)
             {
-                float fireAngle = direction + spread * ((2f * j / (numBullets - 1)) - 1f);
+                float fireAngle;
+                if (numBullets <= 1) { fireAngle = direction; //if the code in the else statement is run and numBullets = 1,
+                                                                    // it divides by zero.
+                } else
+                { fireAngle = direction + waveOffset * (i-1) + spread * ((2f * j / (numBullets - 1)) - 1f);
+                }
+                
                 GameObject firedBullet = Instantiate(bullet, spawnPosition, Quaternion.identity);
                 EnemyBulletScript fbScript = firedBullet.GetComponent<EnemyBulletScript>();
                 if (fbScript != null)
@@ -138,6 +166,8 @@ public class TriangleMoveAndShoot : MonoBehaviour
             hitCounter++;
             if (hitCounter >= maxHealth)
             {
+                levelManager.score += scoreOnKill;
+                Instantiate(explosion, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
         }
