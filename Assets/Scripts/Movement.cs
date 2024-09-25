@@ -10,7 +10,9 @@ public class Movement : MonoBehaviour
     public float moveSpeed;
     public float ySpeedScale;
     Rigidbody2D rb;
-    public float playerBounds;
+    public float playerBoundsX;
+    public float playerBoundsY;
+
     Vector2 moveDirection = Vector2.zero;
 
     Transform t;
@@ -30,14 +32,24 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (transform.position.x > playerBounds && moveDirection.x > 0)
+        if (transform.position.x > playerBoundsX && moveDirection.x > 0)
         {
             moveDirection.x = 0;
         }
-        if (transform.position.x < -playerBounds && moveDirection.x < 0)
+        if (transform.position.x < -playerBoundsX && moveDirection.x < 0)
         {
             moveDirection.x = 0;
         }
+
+        if (transform.position.y > playerBoundsY && moveDirection.y > 0)
+        {
+            moveDirection.y = 0;
+        }
+        if (transform.position.y < -playerBoundsY && moveDirection.y < 0)
+        {
+            moveDirection.y = 0;
+        }
+
         rb.velocity = moveDirection * moveSpeed;
     }
 

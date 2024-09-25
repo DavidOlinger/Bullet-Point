@@ -176,7 +176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   ySpeedScale: 0.8
-  playerBounds: 4.3
+  playerBoundsX: 4.3
+  playerBoundsY: 4.6
 --- !u!114 &6126737780564881817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +205,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c4790985945f9b4fb4c667f3873ff54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 3
   invulCooldownLength: 0.25
   isInvulnerable: 0
 --- !u!114 &6249906741838133057
