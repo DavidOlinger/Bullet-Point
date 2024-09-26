@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class manageEnemiesInWave : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public TriangleMoveAndShoot[] enemies = new TriangleMoveAndShoot[10];
+    private TriangleMoveAndShoot[] enemies;
 
     public manageEnemiesInWave prevWave;
 
@@ -14,17 +15,23 @@ public class manageEnemiesInWave : MonoBehaviour
 
     public int enemiesAlive;
 
+    public bool isLastWave = false;
+    public int nextScene;
+
     void Start()
     {
+        enemies = GetComponentsInChildren<TriangleMoveAndShoot>();
+
         enemiesAlive = enemies.Length;
 
-        foreach (TriangleMoveAndShoot enemy in enemies)
+        foreach( TriangleMoveAndShoot enemy in enemies)
         {
-            if (enemy == null)
+            if(enemy == null)
             {
                 enemiesAlive--;
             }
         }
+
     }
 
     // Update is called once per frame
@@ -48,6 +55,10 @@ public class manageEnemiesInWave : MonoBehaviour
         if(enemiesAlive <= 0)
         {
             allEnemiesDead = true;
+            if (isLastWave)
+            {
+                SceneManager.LoadScene(nextScene);
+            }
         }
     }
 
