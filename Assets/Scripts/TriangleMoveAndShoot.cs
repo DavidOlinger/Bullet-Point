@@ -35,6 +35,9 @@ public class TriangleMoveAndShoot : MonoBehaviour
     public int hitCounter = 0;
     public int maxHealth;
     public int scoreOnKill;
+
+    private manageEnemiesInWave managingWave;
+    public bool active;
     
     
 
@@ -44,6 +47,9 @@ public class TriangleMoveAndShoot : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         levelManager = GameObject.FindGameObjectWithTag("Level Manager").GetComponent<LevelManagerScript>();
+        managingWave = GetComponentInParent<manageEnemiesInWave>();
+
+
     }
 
 
@@ -98,7 +104,10 @@ public class TriangleMoveAndShoot : MonoBehaviour
     {
         if (rb.position.y > VertPosition)
         {
-            rb.velocity = new Vector2(0, -2);
+            if (active)
+            {
+                rb.velocity = new Vector2(0, -2);
+            }
         }
         else
         {
@@ -166,6 +175,8 @@ public class TriangleMoveAndShoot : MonoBehaviour
             hitCounter++;
             if (hitCounter >= maxHealth)
             {
+                managingWave.enemyDied();
+
                 levelManager.score += scoreOnKill;
                 Instantiate(explosion, transform.position, Quaternion.identity);
                 Destroy(gameObject);

@@ -174,21 +174,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57daa2a435e40764a816c79fc1b15feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  numBullets: 10
+  moveSpeed: 0
+  numBullets: 12
   spread: 180
   direction: 0
-  numWaves: 10
+  numWaves: 12
   waveDelay: 0.4
   waveOffset: 12
   targetingPlayer: 0
   bullet: {fileID: 5598534097022973721, guid: d7ddc559a24ccb24b9c721f556093279, type: 3}
   explosion: {fileID: 5443071555548682609, guid: 6009056554e318d4f9a556f45e6ed94d, type: 3}
-  bulletSpawnPos: -0.42
+  bulletSpawnPos: 0
   spawnCooldown: 4
   SideToSideMover: 0
   inVertPosition: 0
-  VertPosition: 3.5
+  VertPosition: 4
   HoverMover: 1
   hitCounter: 0
   maxHealth: 40
