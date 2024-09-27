@@ -2074,7 +2074,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.18076894, g: 0.320704, b: 0.3433962, a: 1}
+  m_Color: {r: 0.5998505, g: 0.75523466, b: 0.78113204, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2107,6 +2107,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 736940300}
     m_Modifications:
+    - target: {fileID: 1071727433712047744, guid: cb8de475b7efe034181c155509292ef5, type: 3}
+      propertyPath: m_Color.b
+      value: 0.92549026
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071727433712047744, guid: cb8de475b7efe034181c155509292ef5, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071727433712047744, guid: cb8de475b7efe034181c155509292ef5, type: 3}
+      propertyPath: m_Color.r
+      value: 0.78823537
+      objectReference: {fileID: 0}
     - target: {fileID: 2032394831628730076, guid: cb8de475b7efe034181c155509292ef5, type: 3}
       propertyPath: m_Name
       value: HoverSpreadShot Variant (3)
@@ -2390,7 +2402,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.18039216, g: 0.31764707, b: 0.34509805, a: 1}
+  m_Color: {r: 0.6, g: 0.75294125, b: 0.7803922, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

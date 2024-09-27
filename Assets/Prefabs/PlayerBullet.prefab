@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 4284345301299566716}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05, y: -2.788, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 3.6}
+  m_LocalPosition: {x: -0.1668, y: -3.0422, z: 0}
+  m_LocalScale: {x: 0.25440705, y: 0.2979997, z: 3.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 947a1b143e95e184093771eb2da528db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b71baec148f2e3349a6d6ac1c0abeb9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -146,7 +146,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.57}
   serializedVersion: 2
   m_Radius: 0.5
 --- !u!114 &1483548920459794498
@@ -162,4 +162,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 13
-  timeToDie: 1
