@@ -57,9 +57,15 @@ public class manageEnemiesInWave : MonoBehaviour
             allEnemiesDead = true;
             if (isLastWave)
             {
-                SceneManager.LoadScene(nextScene);
+                Invoke("loader", 2);
             }
         }
+    }
+
+
+    void loader()
+    {
+        SceneManager.LoadSceneAsync(6);
     }
 
 

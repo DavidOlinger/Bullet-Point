@@ -13,6 +13,7 @@ public class PlayerLogic : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Color startColor;
     LevelManagerScript levelManager;
+    public GameObject explosion;
 
 
     // Start is called before the first frame update
@@ -48,6 +49,11 @@ public class PlayerLogic : MonoBehaviour
         {
             //Debug.Log("player Hit");
             levelManager.hp--;
+            if(levelManager.hp <= 0)
+            {
+                Instantiate(explosion, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
             invulCooldown = invulCooldownLength;
             isInvulnerable = true;
             spriteRenderer.color = new Color(1f, 1f, 1f, 0.1f);

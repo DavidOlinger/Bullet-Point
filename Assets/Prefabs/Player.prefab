@@ -207,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invulCooldownLength: 0.25
   isInvulnerable: 0
+  explosion: {fileID: 5443071555548682609, guid: 6009056554e318d4f9a556f45e6ed94d, type: 3}
 --- !u!114 &6249906741838133057
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ public class LoadFirstLevel : MonoBehaviour
 
     public void OnButtonClick()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(6);
     }
 
     

@@ -24,7 +24,7 @@ public class ShootBullet : MonoBehaviour
         timeSinceLastSpawn += Time.deltaTime;
 
 
-        if (Input.GetKey(KeyCode.N)) //Could def replace with inputManager
+        if (Input.GetKey(KeyCode.Space)) //Could def replace with inputManager
         {
             if(timeSinceLastSpawn > spawnCooldown)
             {
