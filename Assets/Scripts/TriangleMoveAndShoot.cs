@@ -31,6 +31,7 @@ public class TriangleMoveAndShoot : MonoBehaviour
     public bool inVertPosition;
     public float VertPosition;
     public bool HoverMover;
+    public bool flyByeMover;
 
     public int hitCounter = 0;
     public int maxHealth;
@@ -55,8 +56,8 @@ public class TriangleMoveAndShoot : MonoBehaviour
 
     private void Update()
     {
-        
-        if (SideToSideMover)
+        //moves back and forth across screen
+        if (SideToSideMover) 
         {
             if (rb.transform.position.x > 4.5 && moveSpeed > 0)
             {
@@ -80,21 +81,33 @@ public class TriangleMoveAndShoot : MonoBehaviour
             
         }
 
+        if (flyByeMover)
+        {
+            if (rb.transform.position.x < -7 || rb.transform.position.x > 7)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+
+
+        if (targetingPlayer && (player != null)) //add option for a bullet to spawn with its rotation set to point at the player.
+        {
+            Vector3 directionToTarget = transform.position - player.transform.position;
+            direction = -Vector3.Angle(transform.up, directionToTarget);
+            if (player.transform.position.x > transform.position.x)
+            {
+                direction = -direction;
+            }
+
+        }
+
         timeSinceLastSpawn += Time.deltaTime;
 
         if (timeSinceLastSpawn > spawnCooldown && inVertPosition)
             {
-            //Vector3 playerPosition = transform.position;
-
-            //Vector3 spawnPosition = playerPosition + new Vector3(0, bulletSpawnPos, 0);
-
-            //Instantiate(bullet, spawnPosition, Quaternion.identity);
-
-
-           
             StartCoroutine(FireBulletSpread(numBullets, spread, direction, numWaves, waveDelay, waveOffset));
-
-                timeSinceLastSpawn = 0;
+            timeSinceLastSpawn = 0;
             }
 
     }
@@ -123,6 +136,10 @@ public class TriangleMoveAndShoot : MonoBehaviour
             else if (HoverMover)
             {
                 rb.velocity = new Vector2(0, 0);
+            }
+            else if(flyByeMover)
+                {
+                rb.velocity = new Vector2(moveSpeed, 0);
             }
         }
         
