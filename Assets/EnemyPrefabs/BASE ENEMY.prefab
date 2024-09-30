@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6745364812268340284}
   - component: {fileID: 1668135638935813185}
   m_Layer: 0
-  m_Name: EnemyTriangle
+  m_Name: BASE ENEMY
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,17 +182,20 @@ MonoBehaviour:
   waveDelay: 0
   waveOffset: 0
   targetingPlayer: 0
+  swarmDistance: 0
   bullet: {fileID: 4319156461028182437, guid: c06ec28000bcf9540be8ce13dfe88f26, type: 3}
   explosion: {fileID: 5443071555548682609, guid: 6009056554e318d4f9a556f45e6ed94d, type: 3}
   bulletSpawnPos: -0.42
   spawnCooldown: 1.5
-  timeToShoot: 3
+  minShootTime: 0
+  maxShootTime: 0
   inVertPosition: 0
   VertPosition: 0
   SideToSideMover: 0
   HoverMover: 0
   flyByeMover: 0
   TurretMover: 0
+  SwarmMoover: 0
   hitCounter: 0
   maxHealth: 0
   scoreOnKill: 500

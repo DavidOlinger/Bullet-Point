@@ -116,29 +116,25 @@ public class TriangleMoveAndShoot : MonoBehaviour
             }
 
         }
-        if (TurretMover)
-        {
-            if (rb.transform.position.y < -6.5)
-            {
-                managingWave.enemyDied();
-                Destroy(gameObject);
-            }
-        }
         if (SwarmMoover && (player != null)) //add option for a bullet to spawn with its rotation set to point at the player.
         {
             swarmDirection = player.transform.position - transform.position;
             swarmDirection.Normalize();
         }
+        if (rb.transform.position.y < -6.5)
+        {
+            managingWave.enemyDied();
+            Destroy(gameObject);
+        }
 
-
-            timeSinceLastSpawn += Time.deltaTime;
+        timeSinceLastSpawn += Time.deltaTime;
 
         if (active)
         {
             timeActive += Time.deltaTime;
         }
 
-        if (timeSinceLastSpawn > spawnCooldown && timeActive > timeToShoot)
+        if (timeSinceLastSpawn > spawnCooldown && timeActive > timeToShoot && rb.position.y <= 5)
             {
             StartCoroutine(FireBulletSpread(numBullets, spread, direction, numWaves, waveDelay, waveOffset));
             timeSinceLastSpawn = 0;

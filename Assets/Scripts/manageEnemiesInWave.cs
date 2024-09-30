@@ -17,6 +17,8 @@ public class manageEnemiesInWave : MonoBehaviour
 
     public bool isLastWave = false;
 
+    public bool isFirstWave = false;
+
 
 
 
@@ -33,6 +35,17 @@ public class manageEnemiesInWave : MonoBehaviour
             if(enemy == null)
             {
                 enemiesAlive--;
+            }
+        }
+
+        if (isFirstWave)
+        {
+            foreach (TriangleMoveAndShoot enemy in enemies)
+            {
+                if (enemy != null)
+                {
+                    enemy.active = true;
+                }
             }
         }
 
