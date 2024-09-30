@@ -16,6 +16,15 @@ public class PlayerLogic : MonoBehaviour
     public GameObject explosion;
 
 
+
+    AudioSource audioSource;
+
+    public AudioClip dmgSound;
+
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +32,9 @@ public class PlayerLogic : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         startColor = spriteRenderer.color;
         levelManager = GameObject.FindGameObjectWithTag("Level Manager").GetComponent<LevelManagerScript>();
+
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -47,9 +59,25 @@ public class PlayerLogic : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("EnemyBullet") && !isInvulnerable)
         {
-            //Debug.Log("player Hit");
             levelManager.hp--;
-            if(levelManager.hp <= 0)
+            audioSource.PlayOneShot(dmgSound);
+
+            if (levelManager.hp <= 0)
+            {
+                Instantiate(explosion, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+            invulCooldown = invulCooldownLength;
+            isInvulnerable = true;
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0.1f);
+        }
+
+        if (collision.gameObject.CompareTag("Enemy") && !isInvulnerable)
+        {
+            levelManager.hp--;
+            audioSource.PlayOneShot(dmgSound);
+
+            if (levelManager.hp <= 0)
             {
                 Instantiate(explosion, transform.position, Quaternion.identity);
                 Destroy(gameObject);
@@ -59,4 +87,6 @@ public class PlayerLogic : MonoBehaviour
             spriteRenderer.color = new Color(1f, 1f, 1f, 0.1f);
         }
     }
+
+    
 }

@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1125201377660567741}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5, y: 25.16, z: 0}
+  m_LocalPosition: {x: 0, y: 7, z: 0}
   m_LocalScale: {x: 0.5784631, y: -0.5784631, z: -0.96410507}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57daa2a435e40764a816c79fc1b15feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  moveSpeed: 2
   numBullets: 12
   spread: 180
   direction: 0
@@ -188,10 +188,14 @@ MonoBehaviour:
   explosion: {fileID: 5443071555548682609, guid: 6009056554e318d4f9a556f45e6ed94d, type: 3}
   bulletSpawnPos: 0
   spawnCooldown: 4
-  SideToSideMover: 0
+  minShootTime: 3
+  maxShootTime: 5
   inVertPosition: 0
   VertPosition: 4
+  SideToSideMover: 0
   HoverMover: 1
+  flyByeMover: 0
+  TurretMover: 0
   hitCounter: 0
   maxHealth: 40
   scoreOnKill: 30000

@@ -9,28 +9,37 @@ public class LevelManagerScript : MonoBehaviour
 
     public TMP_Text scoreText;
     public TMP_Text HPText;
-    public int score;
     public int hp;
 
+
+    private dontDeleteManager ddm;
+
+    public AudioSource music;
 
 
     void Start()
     {
-        score = 0;
-        
+
+        ddm = GameObject.FindGameObjectWithTag("dontDelete").GetComponent<dontDeleteManager>();
+
+        music = GetComponent<AudioSource>();
+
+
     }
+
 
 
 
 
     void Update()
     {
-        scoreText.SetText(score+ " ");
+        scoreText.SetText(ddm.score+ " ");
         HPText.SetText("HP: " + hp);
 
         if(hp == 0)
         {
-            Invoke("loadDeathScreen", 2);
+            music.mute = true;
+            Invoke("loadDeathScreen", 3);
         }
     }
 
@@ -40,4 +49,12 @@ public class LevelManagerScript : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(5);
     }
+
+
+
+
+
+
 }
+
+

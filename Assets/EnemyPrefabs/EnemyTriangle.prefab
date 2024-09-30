@@ -185,11 +185,14 @@ MonoBehaviour:
   bullet: {fileID: 4319156461028182437, guid: c06ec28000bcf9540be8ce13dfe88f26, type: 3}
   explosion: {fileID: 5443071555548682609, guid: 6009056554e318d4f9a556f45e6ed94d, type: 3}
   bulletSpawnPos: -0.42
-  spawnCooldown: 1.71
-  SideToSideMover: 0
+  spawnCooldown: 1.5
+  timeToShoot: 3
   inVertPosition: 0
   VertPosition: 0
+  SideToSideMover: 0
   HoverMover: 0
+  flyByeMover: 0
+  TurretMover: 0
   hitCounter: 0
   maxHealth: 0
   scoreOnKill: 500

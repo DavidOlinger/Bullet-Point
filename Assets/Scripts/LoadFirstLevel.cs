@@ -5,21 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LoadFirstLevel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     public void OnButtonClick()
     {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene("Transition");
     }
 
     

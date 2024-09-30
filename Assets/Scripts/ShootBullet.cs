@@ -11,11 +11,18 @@ public class ShootBullet : MonoBehaviour
     public float spawnCooldown = 1; 
     private float timeSinceLastSpawn = 0;
 
+    AudioSource audioSource;
+
+    public AudioClip shootSound;
+    
+
+
 
 
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     void Update()
@@ -33,6 +40,9 @@ public class ShootBullet : MonoBehaviour
                 Vector3 spawnPosition = playerPosition + new Vector3(0, bulletSpawnPos, 0);
 
                 Instantiate(bullet, spawnPosition, Quaternion.identity);
+
+                audioSource.PlayOneShot(shootSound);
+
 
                 timeSinceLastSpawn = 0;
             }

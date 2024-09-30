@@ -16,7 +16,11 @@ public class manageEnemiesInWave : MonoBehaviour
     public int enemiesAlive;
 
     public bool isLastWave = false;
-    public int nextScene;
+
+
+
+
+
 
     void Start()
     {
@@ -65,7 +69,7 @@ public class manageEnemiesInWave : MonoBehaviour
 
     void loader()
     {
-        SceneManager.LoadSceneAsync(6);
+        SceneManager.LoadSceneAsync("Transition");
     }
 
 

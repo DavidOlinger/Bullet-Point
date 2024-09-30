@@ -8,6 +8,7 @@ TagManager:
   - EnemyBullet
   - playerBullet
   - Level Manager
+  - dontDelete
   layers:
   - Default
   - TransparentFX

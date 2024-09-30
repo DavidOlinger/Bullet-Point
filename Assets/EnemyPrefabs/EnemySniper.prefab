@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7805607234437020868}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.6378, y: 6.5409, z: 0}
+  m_LocalPosition: {x: 0, y: 7, z: 0}
   m_LocalScale: {x: 0.26395872, y: -0.3509979, z: -1.365301}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -187,10 +187,14 @@ MonoBehaviour:
   explosion: {fileID: 5443071555548682609, guid: 6009056554e318d4f9a556f45e6ed94d, type: 3}
   bulletSpawnPos: -0.42
   spawnCooldown: 2
-  SideToSideMover: 0
+  minShootTime: 2
+  maxShootTime: 4
   inVertPosition: 0
   VertPosition: 4
+  SideToSideMover: 0
   HoverMover: 1
+  flyByeMover: 0
+  TurretMover: 0
   hitCounter: 0
   maxHealth: 15
   scoreOnKill: 2000
