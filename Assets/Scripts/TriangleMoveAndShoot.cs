@@ -15,6 +15,8 @@ public class TriangleMoveAndShoot : MonoBehaviour
     public float waveDelay;
     public float waveOffset;
     public bool targetingPlayer = false;
+    private Vector2 swarmDirection;
+    public float swarmDistance;
 
     public GameObject bullet;
     Rigidbody2D rb;
@@ -40,6 +42,7 @@ public class TriangleMoveAndShoot : MonoBehaviour
     public bool HoverMover;
     public bool flyByeMover;
     public bool TurretMover;
+    public bool SwarmMoover;
 
     public int hitCounter = 0;
     public int maxHealth;
@@ -121,10 +124,14 @@ public class TriangleMoveAndShoot : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        if (SwarmMoover && (player != null)) //add option for a bullet to spawn with its rotation set to point at the player.
+        {
+            swarmDirection = player.transform.position - transform.position;
+            swarmDirection.Normalize();
+        }
 
 
-
-        timeSinceLastSpawn += Time.deltaTime;
+            timeSinceLastSpawn += Time.deltaTime;
 
         if (active)
         {
@@ -163,6 +170,7 @@ public class TriangleMoveAndShoot : MonoBehaviour
             else if (HoverMover)
             {
                 rb.velocity = new Vector2(0, 0);
+                
             }
             else if(flyByeMover)
                 {
@@ -171,6 +179,16 @@ public class TriangleMoveAndShoot : MonoBehaviour
             else if (TurretMover)
             {
                 rb.velocity = new Vector2(0, -moveSpeed);
+            }
+            else if (SwarmMoover)
+            {
+                if(Vector2.Distance(transform.position, player.transform.position) > swarmDistance) {
+                    rb.velocity = new Vector2(moveSpeed, moveSpeed) * swarmDirection;
+                }
+                else
+                {
+                    HoverMover = true;
+                }
             }
         }
         
