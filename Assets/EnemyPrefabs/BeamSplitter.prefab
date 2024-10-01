@@ -46,7 +46,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: VertPosition
-      value: 4
+      value: 4.3
       objectReference: {fileID: 0}
     - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: maxShootTime

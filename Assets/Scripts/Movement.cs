@@ -31,11 +31,11 @@ public class Movement : MonoBehaviour
     {
         if (shootScript.isShooting)
         {
-            moveSpeed = 3;
+            moveSpeed = 3f;
         }
         else
         {
-            moveSpeed = 4f;
+            moveSpeed = 4.2f;
         }
     }
 

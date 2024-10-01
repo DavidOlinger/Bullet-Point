@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level2.unity
     guid: c1796c2007d594c40a6c506c486477e1
   - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: aced130de0dff1545a608b94d5aefb45
+  - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: 51ba69e2aaf53804d86c13f5d8c77de1
   - enabled: 1
@@ -23,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Transition.unity
     guid: 991d2a7073c2df64586007e39f783f79
+  - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: 9a1ec38b7cce9ed43baa38476f313a5b
   m_configObjects: {}
