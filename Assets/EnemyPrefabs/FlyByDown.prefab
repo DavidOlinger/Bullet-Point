@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: SideToSideMover
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9044290860408125146, guid: 0347444f06be50040a92a66502c4bc05, type: 3}
+      propertyPath: targetingPlayer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

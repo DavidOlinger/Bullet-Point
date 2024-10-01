@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class startGame : MonoBehaviour
 {
 
-    public bool Return;
+    public bool Return = false;
     
     // Update is called once per frame
     void Update()
@@ -25,12 +25,19 @@ public class startGame : MonoBehaviour
 
             }
         }
+
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if (Return!)
+            if (Return == false)
             {
                 SceneManager.LoadScene("Controls");
             }
         }
+
+
+
     }
+
+
+
 }

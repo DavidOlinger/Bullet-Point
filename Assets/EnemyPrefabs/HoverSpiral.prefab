@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  numBullets: 4
+  numBullets: 5
   spread: 180
   direction: 0
   numWaves: 23
@@ -189,16 +189,18 @@ MonoBehaviour:
   explosion: {fileID: 5443071555548682609, guid: 6009056554e318d4f9a556f45e6ed94d, type: 3}
   bulletSpawnPos: 0
   spawnCooldown: 5
+  isShooting: 0
   timeSinceLastSpawn: 0
-  minShootTime: 4
-  maxShootTime: 4
+  minShootTime: 3
+  maxShootTime: 3
   inVertPosition: 0
   VertPosition: 4.2
   SideToSideMover: 0
-  HoverMover: 1
+  HoverMover: 0
   flyByeMover: 0
   TurretMover: 0
   SwarmMoover: 0
+  NotMover: 1
   hitCounter: 0
   maxHealth: 50
   scoreOnKill: 12000

@@ -93,9 +93,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
+      propertyPath: IsBomb
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 4949480308088608398, guid: 1b28bf28ace78014fbbf7464b4c1d170, type: 3}
+      objectReference: {fileID: 3767472475797071955, guid: 2abbb423fc9f77844b0dcd16e9202d08, type: 3}
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: spread
       value: 180
@@ -105,16 +109,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
+      propertyPath: maxHealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: moveSpeed
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
+      propertyPath: waveDelay
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: HoverMover
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
+      propertyPath: isShooting
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: numBullets
-      value: 8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: TurretMover
@@ -126,23 +142,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: VertPosition
-      value: 3
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: maxShootTime
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: minShootTime
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: spawnCooldown
-      value: 4
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: bulletSpawnPos
-      value: -0.36
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: inVertPosition
@@ -222,7 +238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8225722073374334815, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: m_Name
-      value: TurretStar
+      value: MineBomb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

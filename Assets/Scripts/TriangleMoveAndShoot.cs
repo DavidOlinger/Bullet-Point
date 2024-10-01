@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class TriangleMoveAndShoot : MonoBehaviour
 {
-
+    
     public float moveSpeed;
-   
+
     public int numBullets;
     public float spread;
     public float direction;
@@ -44,6 +44,8 @@ public class TriangleMoveAndShoot : MonoBehaviour
     public bool flyByeMover;
     public bool TurretMover;
     public bool SwarmMoover;
+    public bool NotMover;
+    public bool IsBomb;
 
     public int hitCounter = 0;
     public int maxHealth;
@@ -82,16 +84,9 @@ public class TriangleMoveAndShoot : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-
-
-    }
-
-
     private void FixedUpdate()
     {
-
+        // makes sure enemy is on screen before firing
         if (rb.position.y > VertPosition)
         {
             if (active)
@@ -104,6 +99,7 @@ public class TriangleMoveAndShoot : MonoBehaviour
             inVertPosition = true;
         }
 
+        // different movement patterns
         if (inVertPosition && active)
         {
             if (SideToSideMover)
@@ -144,6 +140,10 @@ public class TriangleMoveAndShoot : MonoBehaviour
                     HoverMover = true;
                 }
             }
+            else if (NotMover)
+            {
+                rb.velocity = Vector2.zero;
+            }
         }
 
 
@@ -162,7 +162,7 @@ public class TriangleMoveAndShoot : MonoBehaviour
             }
         }
 
-
+        //not rly used, could delete
         if (flyByeMover)
         {
             if (rb.transform.position.x < -7 || rb.transform.position.x > 7)
@@ -179,7 +179,7 @@ public class TriangleMoveAndShoot : MonoBehaviour
             swarmDirection.Normalize();
         }
 
-        if (rb.transform.position.y < -6.5)
+        if (rb.transform.position.y < -5.5)
         {
             managingWave.enemyDied();
             Destroy(gameObject);
@@ -204,7 +204,7 @@ public class TriangleMoveAndShoot : MonoBehaviour
         }
 
 
-        if (timeSinceLastSpawn > spawnCooldown && timeActive > timeToShoot && rb.position.y <= 5)
+        if (timeSinceLastSpawn > spawnCooldown && timeActive > timeToShoot && rb.position.y <= 4.7 && inVertPosition)
         {
             StartCoroutine(FireBulletSpread(numBullets, spread, direction, numWaves, waveDelay, waveOffset));
             timeSinceLastSpawn = 0;
@@ -309,6 +309,12 @@ public class TriangleMoveAndShoot : MonoBehaviour
         {
             Destroy(collision.gameObject);
             hitCounter++;
+
+            if (IsBomb)
+            {
+                StartCoroutine(FireBulletSpread(numBullets, spread, direction, numWaves, waveDelay, waveOffset));
+            }
+
             if (hitCounter >= maxHealth)
             {
                 managingWave.enemyDied();
