@@ -189,6 +189,7 @@ MonoBehaviour:
   explosion: {fileID: 5443071555548682609, guid: 6009056554e318d4f9a556f45e6ed94d, type: 3}
   bulletSpawnPos: 0
   spawnCooldown: 4
+  timeSinceLastSpawn: 0
   minShootTime: 1.5
   maxShootTime: 2
   inVertPosition: 0
@@ -201,4 +202,11 @@ MonoBehaviour:
   hitCounter: 0
   maxHealth: 50
   scoreOnKill: 30000
+  hovering: 0
+  hoverx: 0
+  hovery: 0
+  hoverSpeed: 0.1
+  hoverSpeedCap: 5
+  hoverSpeedDirx: 0
+  hoverSpeedDiry: 0
   active: 0

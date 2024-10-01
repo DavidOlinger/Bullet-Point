@@ -26,8 +26,9 @@ public class TriangleMoveAndShoot : MonoBehaviour
 
     public float bulletSpawnPos = 1;
     public float spawnCooldown = 1;
+    public bool isShooting;
 
-    private float timeSinceLastSpawn = 0;
+    public float timeSinceLastSpawn = 0;
 
     private float timeActive = 0;
     public float minShootTime;
@@ -47,6 +48,14 @@ public class TriangleMoveAndShoot : MonoBehaviour
     public int hitCounter = 0;
     public int maxHealth;
     public int scoreOnKill;
+    public bool hovering;
+
+    public float hoverx;
+    public float hovery;
+    public float hoverSpeed;
+    public float hoverSpeedCap;
+    public bool hoverSpeedDirx;
+    public bool hoverSpeedDiry;
 
     private manageEnemiesInWave managingWave;
     public bool active;
@@ -66,7 +75,7 @@ public class TriangleMoveAndShoot : MonoBehaviour
         ddm = GameObject.FindGameObjectWithTag("dontDelete").GetComponent<dontDeleteManager>();
 
         timeToShoot = UnityEngine.Random.Range(minShootTime, maxShootTime);
-
+        
 
 
 
@@ -75,76 +84,14 @@ public class TriangleMoveAndShoot : MonoBehaviour
 
     private void Update()
     {
-        //moves back and forth across screen
-        if (SideToSideMover) 
-        {
-            if (rb.transform.position.x > 4.5 && moveSpeed > 0)
-            {
-                moveSpeed = moveSpeed * -1;
-            }
 
-            if (rb.transform.position.x < -4.5 && moveSpeed < 0)
-            {
-                moveSpeed = moveSpeed * -1;
-            }
-        }
-        if (targetingPlayer && (player != null)) //add option for a bullet to spawn with its rotation set to point at the player.
-        {
-            Vector3 directionToTarget = transform.position - player.transform.position;
-            direction = -Vector3.Angle(transform.up, directionToTarget);
-            if (player.transform.position.x > transform.position.x)
-            {
-                direction = -direction;
-            }
-            
-        }
-        if (flyByeMover)
-        {
-            if (rb.transform.position.x < -7 || rb.transform.position.x > 7)
-            {
-                managingWave.enemyDied();
-                Destroy(gameObject);
-            }
-        }
-        if (targetingPlayer && (player != null)) //add option for a bullet to spawn with its rotation set to point at the player.
-        {
-            Vector3 directionToTarget = transform.position - player.transform.position;
-            direction = -Vector3.Angle(transform.up, directionToTarget);
-            if (player.transform.position.x > transform.position.x)
-            {
-                direction = -direction;
-            }
-
-        }
-        if (SwarmMoover && (player != null)) //add option for a bullet to spawn with its rotation set to point at the player.
-        {
-            swarmDirection = player.transform.position - transform.position;
-            swarmDirection.Normalize();
-        }
-        if (rb.transform.position.y < -6.5)
-        {
-            managingWave.enemyDied();
-            Destroy(gameObject);
-        }
-
-        timeSinceLastSpawn += Time.deltaTime;
-
-        if (active)
-        {
-            timeActive += Time.deltaTime;
-        }
-
-        if (timeSinceLastSpawn > spawnCooldown && timeActive > timeToShoot && rb.position.y <= 5)
-            {
-            StartCoroutine(FireBulletSpread(numBullets, spread, direction, numWaves, waveDelay, waveOffset));
-            timeSinceLastSpawn = 0;
-            }
 
     }
 
 
     private void FixedUpdate()
     {
+
         if (rb.position.y > VertPosition)
         {
             if (active)
@@ -163,9 +110,13 @@ public class TriangleMoveAndShoot : MonoBehaviour
             {
                 rb.velocity = new Vector2(moveSpeed, 0);
             }
-            else if (HoverMover)
+            else if (HoverMover )
             {
-                rb.velocity = new Vector2(0, 0);
+                if (!hovering) {
+                    rb.velocity = new Vector2(0, 0); 
+                    hovering = true;
+                }
+                
                 
             }
             else if(flyByeMover)
@@ -174,7 +125,14 @@ public class TriangleMoveAndShoot : MonoBehaviour
             }
             else if (TurretMover)
             {
-                rb.velocity = new Vector2(0, -moveSpeed);
+                if (isShooting)
+                {
+                    rb.velocity = Vector2.zero;
+                } else
+                {
+                    rb.velocity = new Vector2(0, -moveSpeed);
+                }
+
             }
             else if (SwarmMoover)
             {
@@ -187,7 +145,118 @@ public class TriangleMoveAndShoot : MonoBehaviour
                 }
             }
         }
-        
+
+
+
+        //moves back and forth across screen
+        if (SideToSideMover)
+        {
+            if (rb.transform.position.x > 4.5 && moveSpeed > 0)
+            {
+                moveSpeed = moveSpeed * -1;
+            }
+
+            if (rb.transform.position.x < -4.5 && moveSpeed < 0)
+            {
+                moveSpeed = moveSpeed * -1;
+            }
+        }
+
+
+        if (flyByeMover)
+        {
+            if (rb.transform.position.x < -7 || rb.transform.position.x > 7)
+            {
+                managingWave.enemyDied();
+                Destroy(gameObject);
+            }
+        }
+
+
+        if (SwarmMoover && (player != null)) 
+        {
+            swarmDirection = player.transform.position - transform.position;
+            swarmDirection.Normalize();
+        }
+
+        if (rb.transform.position.y < -6.5)
+        {
+            managingWave.enemyDied();
+            Destroy(gameObject);
+        }
+
+        if (active)
+        {
+            timeSinceLastSpawn += 0.02f;
+            timeActive += 0.02f;
+        }
+
+
+        if (targetingPlayer && player != null)
+        {
+            // Get direction from the sprite to the player, get the angle in degrees, and rotate the object to face player.
+            Vector3 directionToTarget = player.transform.position - transform.position;
+            float angle = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
+            angle += 90;
+            direction = angle;
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
+        }
+
+
+        if (timeSinceLastSpawn > spawnCooldown && timeActive > timeToShoot && rb.position.y <= 5)
+        {
+            StartCoroutine(FireBulletSpread(numBullets, spread, direction, numWaves, waveDelay, waveOffset));
+            timeSinceLastSpawn = 0;
+        }
+
+        if (hovering)
+        {
+
+            if (hoverSpeedDirx)
+            {
+                rb.AddForce(new Vector2(hoverSpeed, 0));
+                hoverx += hoverSpeed;
+            }
+            else
+            {
+                rb.AddForce(new Vector2(-hoverSpeed, 0));
+                hoverx -= hoverSpeed;
+            }
+            if (hoverx > hoverSpeedCap)
+            {
+                hoverSpeedDirx = false;
+            } else
+            {
+                if (hoverx < -hoverSpeedCap)
+                {
+                    hoverSpeedDirx = true;
+                }
+            }
+
+            if (hoverSpeedDiry)
+            {
+                rb.AddForce(new Vector2(0, hoverSpeed));
+                hovery += 2*hoverSpeed;
+            }
+            else
+            {
+                rb.AddForce(new Vector2(0, -hoverSpeed));
+                hovery -= 2*hoverSpeed;
+            }
+            if (hovery > hoverSpeedCap)
+            {
+                hoverSpeedDiry = false;
+            }
+            else
+            {
+                if (hovery < -hoverSpeedCap)
+                {
+                    hoverSpeedDiry = true;
+                }
+            }
+
+        }
     }
 
 
@@ -198,8 +267,8 @@ public class TriangleMoveAndShoot : MonoBehaviour
         //this is a coroutine, which means we can manage time with it. This is powerful but the implementation is a bit strange.
         //look up some documentation on it when you get the chance.
     {
+        isShooting = true;
         Vector3 playerPosition = transform.position;
-        if (numBullets > 1) { numBullets++; } //FIXME?
         Vector3 spawnPosition = playerPosition + new Vector3(0, bulletSpawnPos, 0);
         direction += 180; //FIXME
         for (int i = 0; i < numWaves; i++)
@@ -226,7 +295,8 @@ public class TriangleMoveAndShoot : MonoBehaviour
             }
             yield return new WaitForSeconds(waveDelay);
         }
-       
+        //yield return new WaitForSeconds(0.1f);
+        isShooting = false;
     }
 
 

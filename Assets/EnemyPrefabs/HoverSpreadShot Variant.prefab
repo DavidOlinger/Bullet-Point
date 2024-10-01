@@ -41,6 +41,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
+      propertyPath: hoverSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: numBullets
       value: 5
       objectReference: {fileID: 0}
@@ -59,6 +63,10 @@ PrefabInstance:
     - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: minShootTime
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
+      propertyPath: hoverSpeedCap
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: spawnCooldown

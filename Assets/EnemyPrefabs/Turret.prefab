@@ -25,6 +25,10 @@ PrefabInstance:
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
+      propertyPath: waveDelay
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: numBullets
       value: 1
       objectReference: {fileID: 0}
