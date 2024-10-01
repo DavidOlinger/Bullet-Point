@@ -183,18 +183,20 @@ MonoBehaviour:
   waveDelay: 0.07
   waveOffset: 0
   targetingPlayer: 1
+  swarmDistance: 0
   bullet: {fileID: 1878825702976744942, guid: b30e82ba5ea2ab34bbf80c54207ab495, type: 3}
   explosion: {fileID: 5443071555548682609, guid: 6009056554e318d4f9a556f45e6ed94d, type: 3}
   bulletSpawnPos: -0.42
   spawnCooldown: 2
-  minShootTime: 2
-  maxShootTime: 4
+  minShootTime: 1
+  maxShootTime: 2
   inVertPosition: 0
   VertPosition: 4
   SideToSideMover: 0
   HoverMover: 1
   flyByeMover: 0
   TurretMover: 0
+  SwarmMoover: 0
   hitCounter: 0
   maxHealth: 15
   scoreOnKill: 2000

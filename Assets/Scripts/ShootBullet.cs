@@ -14,6 +14,8 @@ public class ShootBullet : MonoBehaviour
     AudioSource audioSource;
 
     public AudioClip shootSound;
+
+    public bool isShooting;
     
 
 
@@ -33,6 +35,8 @@ public class ShootBullet : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space)) //Could def replace with inputManager
         {
+            isShooting = true;
+
             if(timeSinceLastSpawn > spawnCooldown)
             {
                 Vector3 playerPosition = transform.position;
@@ -47,6 +51,10 @@ public class ShootBullet : MonoBehaviour
                 timeSinceLastSpawn = 0;
             }
             
+        }
+        else
+        {
+            isShooting = false;
         }
     }
 

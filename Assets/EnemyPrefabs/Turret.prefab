@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 1878825702976744942, guid: b30e82ba5ea2ab34bbf80c54207ab495, type: 3}
+    - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: numWaves
       value: 1
       objectReference: {fileID: 0}
@@ -29,8 +33,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
+      propertyPath: flyByeMover
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: maxShootTime
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: minShootTime
@@ -38,7 +46,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: spawnCooldown
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
+      propertyPath: bulletSpawnPos
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: inVertPosition

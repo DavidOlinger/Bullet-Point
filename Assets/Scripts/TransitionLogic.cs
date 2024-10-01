@@ -11,6 +11,7 @@ public class TransitionLogic : MonoBehaviour
 
     private dontDeleteManager ddm;
 
+    Scene currScene;
 
 
 
@@ -26,13 +27,13 @@ public class TransitionLogic : MonoBehaviour
         ddm.nextLevel++;
 
 
-        
+
 
         
 
 
         levelText.SetText("Level " + ddm.nextLevel);
-        Invoke("loader", 3);
+        Invoke("loader", 4);
 
         
         

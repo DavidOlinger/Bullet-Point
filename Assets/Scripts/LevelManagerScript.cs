@@ -47,7 +47,7 @@ public class LevelManagerScript : MonoBehaviour
 
     void loadDeathScreen()
     {
-        SceneManager.LoadSceneAsync(5);
+        SceneManager.LoadSceneAsync("DeathScreen");
     }
 
 

@@ -193,8 +193,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4284345301299566716, guid: b92d82f02a872a947aa21beca5cc0f74, type: 3}
   bulletSpawnPos: 0.35
-  spawnCooldown: 0.07
+  spawnCooldown: 0.1
   shootSound: {fileID: 8300000, guid: 5ed0e3ef521880240898c69cfefeab12, type: 3}
+  isShooting: 0
 --- !u!114 &-1610585679197876877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +211,7 @@ MonoBehaviour:
   invulCooldownLength: 0.5
   isInvulnerable: 0
   explosion: {fileID: 5443071555548682609, guid: 6009056554e318d4f9a556f45e6ed94d, type: 3}
-  dmgSound: {fileID: 8300000, guid: bcb7080280041e644b416088182bdf3f, type: 3}
+  dmgSound: {fileID: 8300000, guid: f12e1e08d9e6c2047a446ee9b2db8085, type: 3}
 --- !u!114 &6249906741838133057
 MonoBehaviour:
   m_ObjectHideFlags: 0

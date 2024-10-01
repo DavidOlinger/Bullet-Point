@@ -17,17 +17,26 @@ public class Movement : MonoBehaviour
 
     Transform t;
 
+    ShootBullet shootScript;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         t = GetComponent<Transform>();
+        shootScript = GetComponent<ShootBullet>();
     }
 
 
     private void Update()
     {
-      
-
+        if (shootScript.isShooting)
+        {
+            moveSpeed = 3;
+        }
+        else
+        {
+            moveSpeed = 4f;
+        }
     }
 
     private void FixedUpdate()
