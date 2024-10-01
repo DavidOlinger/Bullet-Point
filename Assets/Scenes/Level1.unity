@@ -3042,6 +3042,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5976527963070072440, guid: 76c07d983b5cade4291320aac74066e1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3500450896844277796, guid: 76c07d983b5cade4291320aac74066e1, type: 3}
       propertyPath: playerBoundsY
       value: 4.6
