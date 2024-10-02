@@ -130,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: numBullets
-      value: 19
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: TurretMover

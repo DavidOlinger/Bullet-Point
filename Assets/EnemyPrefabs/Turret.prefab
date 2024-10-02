@@ -95,7 +95,7 @@ PrefabInstance:
     - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 1878825702976744942, guid: b30e82ba5ea2ab34bbf80c54207ab495, type: 3}
+      objectReference: {fileID: 76002045232261154, guid: 1e4fec5c5a618c24d8ce1571d12fcf43, type: 3}
     - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: numWaves
       value: 1

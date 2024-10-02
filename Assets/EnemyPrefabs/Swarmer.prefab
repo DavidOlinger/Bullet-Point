@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 80204372543085316, guid: 9ed7569158af26949b55cf1258ee72f0, type: 3}
       propertyPath: moveSpeed
-      value: 3
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 80204372543085316, guid: 9ed7569158af26949b55cf1258ee72f0, type: 3}
       propertyPath: waveDelay

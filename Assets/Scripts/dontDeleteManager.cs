@@ -34,7 +34,37 @@ public class dontDeleteManager : MonoBehaviour
 
     }
 
-    
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            nextLevel = 0;
+            SceneManager.LoadScene("Transition");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            nextLevel = 1;
+            SceneManager.LoadScene("Transition");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            nextLevel = 2;
+            SceneManager.LoadScene("Transition");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            nextLevel = 3;
+            SceneManager.LoadScene("Transition");
+        }
+
+    }
 
 
 

@@ -6742,6 +6742,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 351744970256616172, guid: d0480b80cb1efb0498a319b5942903aa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 22.19
+      objectReference: {fileID: 0}
     - target: {fileID: 7696834179749899106, guid: d0480b80cb1efb0498a319b5942903aa, type: 3}
       propertyPath: m_Name
       value: SidePlaceHolder (1) 1
