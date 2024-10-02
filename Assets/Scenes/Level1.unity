@@ -1071,7 +1071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6960319745712741930, guid: 2139091fed332384abd8e0d4a8fd13fd, type: 3}
       propertyPath: hp
-      value: 226
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6960319745712741930, guid: 2139091fed332384abd8e0d4a8fd13fd, type: 3}
       propertyPath: HPText
