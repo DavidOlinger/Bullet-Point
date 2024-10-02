@@ -9,12 +9,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -2376366907938485798, guid: c06ec28000bcf9540be8ce13dfe88f26, type: 3}
+      propertyPath: m_Size.x
+      value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: -2376366907938485798, guid: c06ec28000bcf9540be8ce13dfe88f26, type: 3}
       propertyPath: m_Size.y
-      value: 1.2582109
+      value: 1.6127081
       objectReference: {fileID: 0}
     - target: {fileID: -2376366907938485798, guid: c06ec28000bcf9540be8ce13dfe88f26, type: 3}
       propertyPath: m_Offset.y
-      value: 0.2958945
+      value: 0.16868712
       objectReference: {fileID: 0}
     - target: {fileID: 1941899742589720728, guid: c06ec28000bcf9540be8ce13dfe88f26, type: 3}
       propertyPath: velCoef
