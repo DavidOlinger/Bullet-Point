@@ -24,6 +24,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: TriangleSideToSide Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5840759841724624515, guid: 6b386526f4aac764dba212d24856b72f, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5390906
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840759841724624515, guid: 6b386526f4aac764dba212d24856b72f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.48113203
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840759841724624515, guid: 6b386526f4aac764dba212d24856b72f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6981683594280673888, guid: 6b386526f4aac764dba212d24856b72f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0

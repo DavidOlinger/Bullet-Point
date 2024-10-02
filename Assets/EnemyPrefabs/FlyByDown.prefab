@@ -48,9 +48,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3428243421670986442, guid: 0347444f06be50040a92a66502c4bc05, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b8d9fa5dc01739041ac5923bf8105933, type: 3}
     - target: {fileID: 4429465066616109718, guid: 0347444f06be50040a92a66502c4bc05, type: 3}
       propertyPath: m_Name
       value: FlyByDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083775754450482748, guid: 0347444f06be50040a92a66502c4bc05, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083775754450482748, guid: 0347444f06be50040a92a66502c4bc05, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.98
       objectReference: {fileID: 0}
     - target: {fileID: 9044290860408125146, guid: 0347444f06be50040a92a66502c4bc05, type: 3}
       propertyPath: numWaves

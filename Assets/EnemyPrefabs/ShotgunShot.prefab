@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1071727433712047744, guid: cb8de475b7efe034181c155509292ef5, type: 3}
       propertyPath: m_Color.b
-      value: 0.54088044
+      value: 0.5849056
       objectReference: {fileID: 0}
     - target: {fileID: 1071727433712047744, guid: cb8de475b7efe034181c155509292ef5, type: 3}
       propertyPath: m_Color.g
-      value: 0.1037537
+      value: 0.30790314
       objectReference: {fileID: 0}
     - target: {fileID: 1071727433712047744, guid: cb8de475b7efe034181c155509292ef5, type: 3}
       propertyPath: m_Color.r
-      value: 0.30169794
+      value: 0.4340382
       objectReference: {fileID: 0}
     - target: {fileID: 2032394831628730076, guid: cb8de475b7efe034181c155509292ef5, type: 3}
       propertyPath: m_Name
-      value: HoverShotgunShot
+      value: ShotgunShot
       objectReference: {fileID: 0}
     - target: {fileID: 4553959941549578851, guid: cb8de475b7efe034181c155509292ef5, type: 3}
       propertyPath: m_LocalPosition.x

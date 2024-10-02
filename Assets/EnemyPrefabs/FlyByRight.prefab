@@ -76,9 +76,21 @@ PrefabInstance:
       propertyPath: targetingPlayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4523944750703164583, guid: c40011dac312eef4091889659c4cf95a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 4523944750703164583, guid: c40011dac312eef4091889659c4cf95a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987243055041271889, guid: c40011dac312eef4091889659c4cf95a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b8d9fa5dc01739041ac5923bf8105933, type: 3}
     - target: {fileID: 6331270640647516173, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: m_Name
-      value: FlyBy
+      value: FlyByRight
       objectReference: {fileID: 0}
     - target: {fileID: 8420428652409099442, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: m_LocalPosition.x

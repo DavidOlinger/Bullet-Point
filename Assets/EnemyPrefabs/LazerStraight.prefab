@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 3625043607559282579, guid: 4e12e51097124844aa1369d08913eba6, type: 3}
-  m_Color: {r: 0.70806694, g: 0, b: 1, a: 1}
+  m_Color: {r: 0.6014394, g: 0.4572802, b: 0.6603774, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,15 +98,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 110711197287940168, guid: 5f6a85ce6761dac45a3c980e1093ff8d, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.6773585
       objectReference: {fileID: 0}
     - target: {fileID: 110711197287940168, guid: 5f6a85ce6761dac45a3c980e1093ff8d, type: 3}
       propertyPath: m_Color.r
-      value: 0.11472416
+      value: 0.7140511
       objectReference: {fileID: 0}
     - target: {fileID: 1396781121968203796, guid: 5f6a85ce6761dac45a3c980e1093ff8d, type: 3}
       propertyPath: m_Name
-      value: MovingLazer Variant
+      value: LazerStraight
       objectReference: {fileID: 0}
     - target: {fileID: 3486968237849627819, guid: 5f6a85ce6761dac45a3c980e1093ff8d, type: 3}
       propertyPath: m_LocalPosition.x
