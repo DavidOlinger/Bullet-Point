@@ -104,7 +104,22 @@ public class TriangleMoveAndShoot : MonoBehaviour
         {
             if (SideToSideMover)
             {
-                rb.velocity = new Vector2(moveSpeed, 0);
+                if (TurretMover)
+                {
+                    if (isShooting)
+                    {
+                        rb.velocity = Vector2.zero;
+                    }
+                    else
+                    {
+                        rb.velocity = new Vector2(moveSpeed, 0);
+                    }
+                }
+                else
+                {
+                    rb.velocity = new Vector2(moveSpeed, 0);
+                }
+
             }
             else if (HoverMover )
             {

@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: maxHealth
-      value: 10
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1668135638935813185, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: moveSpeed
@@ -154,11 +154,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8420428652409099442, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8420428652409099442, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.9187016
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8420428652409099442, guid: c40011dac312eef4091889659c4cf95a, type: 3}
       propertyPath: m_LocalPosition.z

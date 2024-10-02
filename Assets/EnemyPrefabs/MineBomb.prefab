@@ -114,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: moveSpeed
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: waveDelay
@@ -130,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: numBullets
-      value: 15
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 3665080415645242131, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       propertyPath: TurretMover
@@ -241,7 +241,8 @@ PrefabInstance:
       value: MineBomb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3757799867642242765, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5846178642763922400, guid: a803619cde9921c489b9d895ed07aa7a, type: 3}
       insertIndex: -1
