@@ -31,7 +31,7 @@ public class ExplodeScript : MonoBehaviour
         else
         {
             explosionCountdown -= (1f / 50f);
-            spriteRenderer.color = new Color(1, 1, 1, explosionCountdown / explosionTime);
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, explosionCountdown / explosionTime);
             explosionSpeed *= explosionFalloff;
             transform.localScale += new Vector3(explosionSpeed, explosionSpeed, 1);
         }

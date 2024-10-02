@@ -300,7 +300,10 @@ public class TriangleMoveAndShoot : MonoBehaviour
     }
 
 
-
+    public void enemyAttack(int numBullets, float spread, float direction, int numWaves, float waveDelay, float waveOffset)
+    {
+        StartCoroutine(FireBulletSpread(numBullets, spread, direction, numWaves, waveDelay, waveOffset));
+    }
 
     //take damage when hit
     private void OnTriggerEnter2D(Collider2D collision)
