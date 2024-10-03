@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class BossLogic : MonoBehaviour
 {
     public bool bossLoopActive;
@@ -37,13 +38,23 @@ public class BossLogic : MonoBehaviour
     public int SGnumBullets, SGnumWaves;
     public float SGspread, SGdirection, SGwaveDelay, SGwaveOffset;
 
+    AudioSource audioSource;
 
-    public GameObject bullet;
+    public AudioClip missileSound;
+    public AudioClip mineSound;
+    public AudioClip bulletfieldSound;
+    public AudioClip shotgunSound;
+
+    public GameObject fieldBullet;
+    public GameObject shotgunBullet;
+    public GameObject mineBullet;
     Rigidbody2D rb;
     GameObject player;
     LevelManagerScript levelManager;
     public GameObject explosion;
     SpriteRenderer spriteRenderer;
+    public GameObject wave;
+    manageEnemiesInWave waveScript;
 
     GameObject leftTurret;
     GameObject rightTurret;
@@ -81,6 +92,7 @@ public class BossLogic : MonoBehaviour
     public bool bulletOn;
     public bool missileOn;
     public bool shotgunOn;
+    public bool mineOn;
 
 
 
@@ -95,6 +107,7 @@ public class BossLogic : MonoBehaviour
         leftTurret = GameObject.Find("BossMissilesL");
         rightTurret = GameObject.Find("BossMissilesR");
         beamTurret = GameObject.Find("BossBeam");
+        waveScript = wave.GetComponent<manageEnemiesInWave>();
         beamOn = false;
         missileOn = false;
     }
@@ -131,8 +144,10 @@ public class BossLogic : MonoBehaviour
         }
 
 
-        if (rb.transform.position.y < -5.5)
+        if (rb.transform.position.y < -30f)
         {
+
+            SceneManager.LoadSceneAsync("WinScreen");
             Destroy(gameObject);
         }
 
@@ -202,7 +217,7 @@ public class BossLogic : MonoBehaviour
 
 
     //fires bullets
-    IEnumerator FireBulletSpread(int numBullets, float spread, float direction, int numWaves, float waveDelay, float waveOffset) //this is special!
+    IEnumerator FireBulletSpread(GameObject bullet, int numBullets, float spread, float direction, int numWaves, float waveDelay, float waveOffset) //this is special!
         //this is a coroutine, which means we can manage time with it. This is powerful but the implementation is a bit strange.
         //look up some documentation on it when you get the chance.
     {
@@ -244,7 +259,7 @@ public class BossLogic : MonoBehaviour
         bossLoopActive = false;
         Destroy(gameObject.GetComponent<PolygonCollider2D>());
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         spriteRenderer.color = new Color(0.35f, 0.35f, 0.35f, 35f);
         for (int i = 0; i < 25; i++) {
             yield return new WaitForSeconds(0.2f);
@@ -316,6 +331,11 @@ public class BossLogic : MonoBehaviour
             Debug.Log("GAP");
             yield return new WaitForSeconds(5);
 
+            StartCoroutine(MineAttack());
+
+            yield return new WaitForSeconds(10);
+            mineOn = false;
+
             // beam splitter and homing missiles
             StartCoroutine(BeamSplitterAttackStart());
             StartCoroutine(MissileAttack());
@@ -332,7 +352,11 @@ public class BossLogic : MonoBehaviour
             yield return new WaitForSeconds(6f);
 
             shotgunOn= false;
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(6f);
+
+            StartCoroutine(MineAttack());
+            yield return new WaitForSeconds(7f);
+            mineOn= false;
 
             StartCoroutine(BeamSplitterAttackStart());
             StartCoroutine(MissileAttack());
@@ -389,7 +413,7 @@ public class BossLogic : MonoBehaviour
         {
             Debug.Log("BULLET FIELD");
             yield return new WaitForSeconds(bulletFieldDelay);
-            StartCoroutine(FireBulletSpread(numBullets, spread, direction, numWaves, waveDelay, waveOffset));
+            StartCoroutine(FireBulletSpread(fieldBullet, numBullets, spread, direction, numWaves, waveDelay, waveOffset));
         }
         
     }
@@ -414,12 +438,22 @@ public class BossLogic : MonoBehaviour
         {
             Debug.Log("ShotGUN");
             yield return new WaitForSeconds(shotgunDelay);
-            StartCoroutine(FireBulletSpread(SGnumBullets, SGspread, SGdirection, SGnumWaves, SGwaveDelay, SGwaveOffset));
+            StartCoroutine(FireBulletSpread(shotgunBullet, SGnumBullets, SGspread, SGdirection, SGnumWaves, SGwaveDelay, SGwaveOffset));
         }
     }
 
 
-
+    IEnumerator MineAttack()
+    {
+        yield return new WaitForSeconds(0.1f);
+        mineOn = true;
+        while (mineOn && bossLoopActive)
+        {
+            Debug.Log("MineBoom");
+            yield return new WaitForSeconds(2f);
+            StartCoroutine(FireBulletSpread(mineBullet, 20, 180, 0, 1, 0, 0));
+        }
+    }
 
 
 }

@@ -81,6 +81,11 @@ public class manageEnemiesInWave : MonoBehaviour
     }
 
 
+    public void invLoader()
+    {
+        Invoke("loader", 2);
+    }
+
     void loader()
     {
         SceneManager.LoadSceneAsync("Transition");

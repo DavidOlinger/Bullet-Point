@@ -204,6 +204,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5143038285041827551, guid: ec4e2b0a2a5703744a2d6ffd4628166a, type: 3}
   m_PrefabInstance: {fileID: 24004041}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &236960871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9054477349705641671, guid: 66a74cb489eb81a448bc2c1217a0bb7c, type: 3}
+  m_PrefabInstance: {fileID: 1017874593}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &279497356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -631,7 +636,7 @@ PrefabInstance:
       objectReference: {fileID: 1017874595}
     - target: {fileID: 7425964409048365369, guid: 66a74cb489eb81a448bc2c1217a0bb7c, type: 3}
       propertyPath: isLastWave
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7425964409048365369, guid: 66a74cb489eb81a448bc2c1217a0bb7c, type: 3}
       propertyPath: isFirstWave
@@ -665,7 +670,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7425964409048365369, guid: 66a74cb489eb81a448bc2c1217a0bb7c, type: 3}
   m_PrefabInstance: {fileID: 1017874593}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 236960871}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9434abcf56ac0c4eb4e20e4d1af1699, type: 3}
@@ -1234,6 +1239,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5285645008542212365, guid: 58de3f030cc96514db4494d2168ce198, type: 3}
+      propertyPath: wave
+      value: 
+      objectReference: {fileID: 236960871}
+    - target: {fileID: 5285645008542212365, guid: 58de3f030cc96514db4494d2168ce198, type: 3}
       propertyPath: bullet
       value: 
       objectReference: {fileID: 4949480308088608398, guid: 1b28bf28ace78014fbbf7464b4c1d170, type: 3}
@@ -1259,7 +1268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5285645008542212365, guid: 58de3f030cc96514db4494d2168ce198, type: 3}
       propertyPath: maxHealth
-      value: 600
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5285645008542212365, guid: 58de3f030cc96514db4494d2168ce198, type: 3}
       propertyPath: waveDelay
@@ -1298,6 +1307,10 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5285645008542212365, guid: 58de3f030cc96514db4494d2168ce198, type: 3}
+      propertyPath: fieldBullet
+      value: 
+      objectReference: {fileID: 4949480308088608398, guid: 1b28bf28ace78014fbbf7464b4c1d170, type: 3}
+    - target: {fileID: 5285645008542212365, guid: 58de3f030cc96514db4494d2168ce198, type: 3}
       propertyPath: BSnumBullets
       value: 2
       objectReference: {fileID: 0}
@@ -1317,6 +1330,10 @@ PrefabInstance:
       propertyPath: shotgunDelay
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5285645008542212365, guid: 58de3f030cc96514db4494d2168ce198, type: 3}
+      propertyPath: shotgunBullet
+      value: 
+      objectReference: {fileID: 76002045232261154, guid: 1e4fec5c5a618c24d8ce1571d12fcf43, type: 3}
     - target: {fileID: 5285645008542212365, guid: 58de3f030cc96514db4494d2168ce198, type: 3}
       propertyPath: targetingPlayer
       value: 1
