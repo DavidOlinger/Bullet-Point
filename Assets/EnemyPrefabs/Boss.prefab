@@ -185,6 +185,18 @@ MonoBehaviour:
   waveDelay: 0
   waveOffset: 0
   targetingPlayer: 0
+  BSnumBullets: 0
+  BSspread: 0
+  BSdirection: 0
+  BSnumWaves: 0
+  BSwaveDelay: 0
+  BSwaveOffset: 0
+  MSnumBullets: 3
+  MSspread: 35
+  MSdirection: 0
+  MSnumWaves: 3
+  MSwaveDelay: 0.75
+  MSwaveOffset: 0
   bullet: {fileID: 4319156461028182437, guid: c06ec28000bcf9540be8ce13dfe88f26, type: 3}
   explosion: {fileID: 6894757015825413213, guid: 1c91501d9b6024742a117a4b707f6e57, type: 3}
   bulletSpawnPos: 1
@@ -207,3 +219,6 @@ MonoBehaviour:
   active: 1
   relx: 0
   rely: 0
+  beamOn: 0
+  bulletOn: 0
+  missileOn: 0

@@ -16,7 +16,7 @@ public class BossTurretLogic : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(boss.transform.position);
+
         transform.position = new Vector3(boss.transform.position.x + relx, boss.transform.position.y + rely, transform.position.z);
     }
 }

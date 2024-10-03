@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriangleMoveAndShoot : MonoBehaviour
+public class MissileTurretLogic : MonoBehaviour
 {
     
     public float moveSpeed;
@@ -104,22 +104,7 @@ public class TriangleMoveAndShoot : MonoBehaviour
         {
             if (SideToSideMover)
             {
-                if (TurretMover)
-                {
-                    if (isShooting)
-                    {
-                        rb.velocity = Vector2.zero;
-                    }
-                    else
-                    {
-                        rb.velocity = new Vector2(moveSpeed, 0);
-                    }
-                }
-                else
-                {
-                    rb.velocity = new Vector2(moveSpeed, 0);
-                }
-
+                rb.velocity = new Vector2(moveSpeed, 0);
             }
             else if (HoverMover )
             {
@@ -302,23 +287,10 @@ public class TriangleMoveAndShoot : MonoBehaviour
                 if (fbScript != null)
                 {
                     fbScript.forceAngle = fireAngle;
-                } else 
+                } else
                 {
-                    HomingMissileScript missileScript = firedBullet.GetComponent<HomingMissileScript>();
-                    if (missileScript != null)
-                    {
-                        
-                        missileScript.launchAngle = 180f - fireAngle;
-                        missileScript.launchVel = 5f;
-                        Debug.Log("Missile Launched");
-                        missileScript.LaunchImpulse(firedBullet.GetComponent<Rigidbody2D>());
-                        
-                    } else
-                    {
-                        Debug.Log("Failed to obtain bullet reference.");
-                        yield break;
-                    }
-
+                    Debug.Log("Failed to obtain bullet reference.");
+                    yield break;
                 }
             }
             yield return new WaitForSeconds(waveDelay);
@@ -328,10 +300,7 @@ public class TriangleMoveAndShoot : MonoBehaviour
     }
 
 
-    public void enemyAttack(int numBullets, float spread, int numWaves, float waveDelay, float waveOffset)
-    {
-        StartCoroutine(FireBulletSpread(numBullets, spread, direction, numWaves, waveDelay, waveOffset));
-    }
+
 
     //take damage when hit
     private void OnTriggerEnter2D(Collider2D collision)

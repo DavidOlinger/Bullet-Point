@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class BossLogic : MonoBehaviour
 {
-    
+    public bool bossLoopActive;
+
     public float moveSpeed;
+
+    public float bulletFieldDelay, beamDelay, missileDelay, shotgunDelay;
 
     public int numBullets;
     public float spread;
@@ -29,6 +32,10 @@ public class BossLogic : MonoBehaviour
     public int MSnumWaves;
     public float MSwaveDelay;
     public float MSwaveOffset;
+
+    public int SGnumBullets, SGnumWaves;
+    public float SGspread, SGdirection, SGwaveDelay, SGwaveOffset;
+
 
     public GameObject bullet;
     Rigidbody2D rb;
@@ -70,7 +77,9 @@ public class BossLogic : MonoBehaviour
     public float rely;
 
     public bool beamOn;
+    public bool bulletOn;
     public bool missileOn;
+    public bool shotgunOn;
 
 
 
@@ -87,7 +96,6 @@ public class BossLogic : MonoBehaviour
         beamTurret = GameObject.Find("BossBeam");
         beamOn = false;
         missileOn = false;
-        StartCoroutine(MainBossLoop());
     }
 
 
@@ -115,6 +123,8 @@ public class BossLogic : MonoBehaviour
             if (!hovering) {
                 rb.velocity = new Vector2(0, 0); 
                 hovering = true;
+                bossLoopActive = true;
+                StartCoroutine(MainBossLoop());
             }
                 
         }
@@ -230,7 +240,8 @@ public class BossLogic : MonoBehaviour
 
     IEnumerator BossDeath() //Trigger the Bosses death and end the game.
     {
-        yield return new WaitForSeconds(5f);
+        bossLoopActive = false;
+        yield return new WaitForSeconds(3f);
         spriteRenderer.color = new Color(0.35f, 0.35f, 0.35f, 35f);
         for (int i = 0; i < 25; i++) {
             yield return new WaitForSeconds(0.2f);
@@ -261,31 +272,80 @@ public class BossLogic : MonoBehaviour
 
     IEnumerator MainBossLoop()
     {
-        yield return new WaitForSeconds(5);
-        //boss main attack starts (just a slow, sparse bullet field)
-        BulletField();
-        //wait 5ish seconds
-        yield return new WaitForSeconds(5);
-        //beam splitter attack
-        BeamSplitterAttack();
-        //wait
-        yield return new WaitForSeconds(8);
-        beamOn = false;
+        while (bossLoopActive)
+        {
+            //boss main attack starts (just a slow, sparse bullet field)
+            StartCoroutine(BulletField());
+            //beam splitter attack
+            StartCoroutine(BeamSplitterAttackStart());
 
-        //disable bullet field
+            yield return new WaitForSeconds(9);
 
-        //boss homing missile attack
-        MissileAttack();
-        //wait
-        yield return new WaitForSeconds(5);
-        //different bullet spray
-        ShotgunAttack();
-        // wait
-        yield return new WaitForSeconds(5);
-        // beam splitter and homing missiles
-        BeamSplitterAttack();
-        MissileAttack();
-        //repeat from top
+            //turn off beam splitter
+            bulletOn = false;
+            //turn off bulle
+            beamOn = false;
+
+            yield return new WaitForSeconds(5f);
+
+
+            //start missile attack
+            StartCoroutine(MissileAttack());
+
+            //wait
+            yield return new WaitForSeconds(9f);
+
+            //turn off missile attack
+            missileOn = false;
+
+            //wait
+
+
+            //different bullet spray
+            StartCoroutine(BulletField());
+            yield return new WaitForSeconds(3);
+            StartCoroutine(ShotgunAttack());
+            yield return new WaitForSeconds(9);
+
+            shotgunOn = false;    
+            bulletOn = false;
+
+
+            Debug.Log("GAP");
+            yield return new WaitForSeconds(5);
+
+            // beam splitter and homing missiles
+            StartCoroutine(BeamSplitterAttackStart());
+            StartCoroutine(MissileAttack());
+            yield return new WaitForSeconds(9f);
+
+            missileOn = false;
+            beamOn = false;
+
+            yield return new WaitForSeconds(3f);
+
+            StartCoroutine(BulletField());
+
+            StartCoroutine(ShotgunAttack());
+            yield return new WaitForSeconds(6f);
+
+            shotgunOn= false;
+            yield return new WaitForSeconds(4f);
+
+            StartCoroutine(BeamSplitterAttackStart());
+            StartCoroutine(MissileAttack());
+            yield return new WaitForSeconds(12f);
+
+            missileOn = false;
+            beamOn = false;
+            bulletOn= false;
+
+
+            //repeat from top
+            yield return new WaitForSeconds(3f);
+        }
+
+
     }
 
 
@@ -309,34 +369,51 @@ public class BossLogic : MonoBehaviour
 
     IEnumerator BeamSplitterAttackStart()
     {
-        yield return new WaitForSeconds(0.1f);
         beamOn = true;
-        while (beamOn) 
+        while (beamOn && bossLoopActive) 
         {
-            yield return new WaitForSeconds(0.05f);
-            beamTurret.GetComponent<TriangleMoveAndShoot>().enemyAttack(BSnumBullets, BSspread, BSdirection, BSnumWaves, BSwaveDelay, BSwaveOffset);
+            yield return new WaitForSeconds(beamDelay);
+            beamTurret.GetComponent<TriangleMoveAndShoot>().enemyAttack(BSnumBullets, BSspread, BSnumWaves, BSwaveDelay, BSwaveOffset);
         }
         
     }
 
-    void BeamSplitterAttack()
+
+
+    IEnumerator BulletField()
     {
-        StartCoroutine(BeamSplitterAttackStart());
+        bulletOn = true;
+        while (bulletOn && bossLoopActive)
+        {
+            Debug.Log("BULLET FIELD");
+            yield return new WaitForSeconds(bulletFieldDelay);
+            StartCoroutine(FireBulletSpread(numBullets, spread, direction, numWaves, waveDelay, waveOffset));
+        }
+        
     }
 
-    void BulletField()
+    IEnumerator MissileAttack()
     {
-
+        yield return new WaitForSeconds(0.1f);
+        missileOn = true;
+        while (missileOn && bossLoopActive)
+        {
+            yield return new WaitForSeconds(missileDelay);
+            leftTurret.GetComponent<TriangleMoveAndShoot>().enemyAttack(MSnumBullets, MSspread, MSnumWaves, MSwaveDelay, MSwaveOffset);
+            rightTurret.GetComponent<TriangleMoveAndShoot>().enemyAttack(MSnumBullets, MSspread, MSnumWaves, MSwaveDelay, MSwaveOffset);
+        }
     }
 
-    void MissileAttack()
+    IEnumerator ShotgunAttack()
     {
-
-    }
-
-    void ShotgunAttack()
-    {
-
+        yield return new WaitForSeconds(0.1f);
+        shotgunOn = true;
+        while (shotgunOn && bossLoopActive)
+        {
+            Debug.Log("ShotGUN");
+            yield return new WaitForSeconds(shotgunDelay);
+            StartCoroutine(FireBulletSpread(SGnumBullets, SGspread, SGdirection, SGnumWaves, SGwaveDelay, SGwaveOffset));
+        }
     }
 
 
