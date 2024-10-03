@@ -26,6 +26,7 @@ public class manageEnemiesInWave : MonoBehaviour
 
     void Start()
     {
+
         enemies = GetComponentsInChildren<TriangleMoveAndShoot>();
 
         enemiesAlive = enemies.Length;

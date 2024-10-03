@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossLogic : MonoBehaviour
 {
@@ -241,6 +242,8 @@ public class BossLogic : MonoBehaviour
     IEnumerator BossDeath() //Trigger the Bosses death and end the game.
     {
         bossLoopActive = false;
+        Destroy(gameObject.GetComponent<PolygonCollider2D>());
+
         yield return new WaitForSeconds(3f);
         spriteRenderer.color = new Color(0.35f, 0.35f, 0.35f, 35f);
         for (int i = 0; i < 25; i++) {
@@ -264,8 +267,7 @@ public class BossLogic : MonoBehaviour
         }
 
         //Send player to win screen
-
-        Destroy(gameObject);
+        SceneManager.LoadScene("WinScreen");
 
         
     }
@@ -415,6 +417,9 @@ public class BossLogic : MonoBehaviour
             StartCoroutine(FireBulletSpread(SGnumBullets, SGspread, SGdirection, SGnumWaves, SGwaveDelay, SGwaveOffset));
         }
     }
+
+
+
 
 
 }

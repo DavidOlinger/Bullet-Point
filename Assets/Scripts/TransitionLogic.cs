@@ -31,7 +31,7 @@ public class TransitionLogic : MonoBehaviour
 
         
 
-        if(currScene.name == "BossLevel")
+        if(ddm.nextLevel == 4)
         {
             levelText.SetText("Final Boss");
             Invoke("loader", 4);
