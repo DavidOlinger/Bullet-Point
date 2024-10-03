@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -109585133
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fea8bdbc4054606488d89b6560c8d61c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -177,7 +177,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52914b80cb8c4ea47bfe95980509aa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossLoopActive: 0
   moveSpeed: 1
+  bulletFieldDelay: 0
+  beamDelay: 0
+  missileDelay: 0
+  shotgunDelay: 0
   numBullets: 0
   spread: 0
   direction: 0
@@ -197,8 +202,21 @@ MonoBehaviour:
   MSnumWaves: 3
   MSwaveDelay: 0.75
   MSwaveOffset: 0
-  bullet: {fileID: 4319156461028182437, guid: c06ec28000bcf9540be8ce13dfe88f26, type: 3}
+  SGnumBullets: 0
+  SGnumWaves: 0
+  SGspread: 0
+  SGdirection: 0
+  SGwaveDelay: 0
+  SGwaveOffset: 0
+  missileSound: {fileID: 0}
+  mineSound: {fileID: 0}
+  bulletfieldSound: {fileID: 0}
+  shotgunSound: {fileID: 0}
+  fieldBullet: {fileID: 0}
+  shotgunBullet: {fileID: 0}
+  mineBullet: {fileID: 0}
   explosion: {fileID: 6894757015825413213, guid: 1c91501d9b6024742a117a4b707f6e57, type: 3}
+  wave: {fileID: 0}
   bulletSpawnPos: 1
   spawnCooldown: 1
   isShooting: 0
@@ -222,3 +240,5 @@ MonoBehaviour:
   beamOn: 0
   bulletOn: 0
   missileOn: 0
+  shotgunOn: 0
+  mineOn: 0
