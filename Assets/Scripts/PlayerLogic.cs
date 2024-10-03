@@ -14,6 +14,12 @@ public class PlayerLogic : MonoBehaviour
     Color startColor;
     LevelManagerScript levelManager;
     public GameObject explosion;
+    //public GameObject playerTrail;
+    //public float playertraildelay;
+    //private float playertrailcounter;
+
+    //public float playerTrailYOff;
+    //public float playerTrailxOff;
 
 
 
@@ -51,7 +57,13 @@ public class PlayerLogic : MonoBehaviour
             invulCooldown -= Time.deltaTime; //count down to turning off invisibility
         }
 
-
+        //playertrailcounter += Time.deltaTime;
+        //if (playertrailcounter > playertraildelay)
+        //{
+        //    playertrailcounter = 0;
+        //    Instantiate(playerTrail, new Vector3(transform.position.x + playerTrailxOff, transform.position.y + playerTrailYOff, transform.position.z + 1), Quaternion.identity);
+        //    Instantiate(playerTrail, new Vector3(transform.position.x - playerTrailxOff, transform.position.y + playerTrailYOff, transform.position.z + 1), Quaternion.identity);
+        //}
         
     }
 

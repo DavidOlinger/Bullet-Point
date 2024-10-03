@@ -131,7 +131,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   pullForce: 7
   missileEnabled: 1
-  disableRange: 1
+  disableRange: 0.8
   launchAngle: -90
   launchVel: 10
 --- !u!60 &161509036323271067

@@ -42,8 +42,10 @@ public class BossLogic : MonoBehaviour
 
     public AudioClip missileSound;
     public AudioClip mineSound;
+    public AudioClip beamSound;
     public AudioClip bulletfieldSound;
     public AudioClip shotgunSound;
+    public AudioClip mineWarning;
 
     public GameObject fieldBullet;
     public GameObject shotgunBullet;
@@ -98,6 +100,7 @@ public class BossLogic : MonoBehaviour
 
 
 
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -108,6 +111,7 @@ public class BossLogic : MonoBehaviour
         rightTurret = GameObject.Find("BossMissilesR");
         beamTurret = GameObject.Find("BossBeam");
         waveScript = wave.GetComponent<manageEnemiesInWave>();
+        audioSource = gameObject.GetComponent<AudioSource>();
         beamOn = false;
         missileOn = false;
     }
@@ -360,8 +364,10 @@ public class BossLogic : MonoBehaviour
 
             StartCoroutine(BeamSplitterAttackStart());
             StartCoroutine(MissileAttack());
-            yield return new WaitForSeconds(12f);
-
+            yield return new WaitForSeconds(7f);
+            StartCoroutine(MineAttack());
+            yield return new WaitForSeconds(7f);
+            mineOn = false;
             missileOn = false;
             beamOn = false;
             bulletOn= false;
@@ -396,6 +402,7 @@ public class BossLogic : MonoBehaviour
     IEnumerator BeamSplitterAttackStart()
     {
         beamOn = true;
+        StartCoroutine(BeamSound());
         while (beamOn && bossLoopActive) 
         {
             yield return new WaitForSeconds(beamDelay);
@@ -409,6 +416,7 @@ public class BossLogic : MonoBehaviour
     IEnumerator BulletField()
     {
         bulletOn = true;
+        audioSource.PlayOneShot(bulletfieldSound, 0.4f);
         while (bulletOn && bossLoopActive)
         {
             Debug.Log("BULLET FIELD");
@@ -422,6 +430,7 @@ public class BossLogic : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         missileOn = true;
+        audioSource.PlayOneShot(missileSound, 0.5f);
         while (missileOn && bossLoopActive)
         {
             yield return new WaitForSeconds(missileDelay);
@@ -438,6 +447,7 @@ public class BossLogic : MonoBehaviour
         {
             Debug.Log("ShotGUN");
             yield return new WaitForSeconds(shotgunDelay);
+            audioSource.PlayOneShot(shotgunSound, 0.7f);
             StartCoroutine(FireBulletSpread(shotgunBullet, SGnumBullets, SGspread, SGdirection, SGnumWaves, SGwaveDelay, SGwaveOffset));
         }
     }
@@ -447,13 +457,24 @@ public class BossLogic : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         mineOn = true;
+        audioSource.PlayOneShot(mineWarning);
+
         while (mineOn && bossLoopActive)
         {
             Debug.Log("MineBoom");
             yield return new WaitForSeconds(2f);
+            audioSource.PlayOneShot(mineSound, 0.5f);
             StartCoroutine(FireBulletSpread(mineBullet, 20, 180, 0, 1, 0, 0));
         }
     }
 
+    IEnumerator BeamSound()
+    {
+        while (beamOn)
+        {
 
+            audioSource.PlayOneShot(beamSound);
+            yield return new WaitForSeconds(0.6f);
+        }
+    }
 }
