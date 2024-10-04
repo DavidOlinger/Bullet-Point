@@ -795,6 +795,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1091155470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2800638062942623178, guid: 76c2b6746c073514abc938aa062fdcae, type: 3}
+  m_PrefabInstance: {fileID: 279497356}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1289289998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1255,6 +1260,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5285645008542212365, guid: 58de3f030cc96514db4494d2168ce198, type: 3}
+      propertyPath: ddm
+      value: 
+      objectReference: {fileID: 1091155470}
+    - target: {fileID: 5285645008542212365, guid: 58de3f030cc96514db4494d2168ce198, type: 3}
       propertyPath: wave
       value: 
       objectReference: {fileID: 236960871}
@@ -1288,7 +1297,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: b21221f9450b7314b96d69632e999b22, type: 3}
     - target: {fileID: 5285645008542212365, guid: 58de3f030cc96514db4494d2168ce198, type: 3}
       propertyPath: maxHealth
-      value: 750
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 5285645008542212365, guid: 58de3f030cc96514db4494d2168ce198, type: 3}
       propertyPath: mineSound

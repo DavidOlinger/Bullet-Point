@@ -39,6 +39,7 @@ public class BossLogic : MonoBehaviour
     public float SGspread, SGdirection, SGwaveDelay, SGwaveOffset;
 
     AudioSource audioSource;
+    private dontDeleteManager ddm;
 
     public AudioClip missileSound;
     public AudioClip mineSound;
@@ -114,11 +115,19 @@ public class BossLogic : MonoBehaviour
         audioSource = gameObject.GetComponent<AudioSource>();
         beamOn = false;
         missileOn = false;
+        ddm = GameObject.FindGameObjectWithTag("dontDelete").GetComponent<dontDeleteManager>();
     }
 
 
     private void FixedUpdate()
     {
+
+
+        if (Input.GetKeyDown(KeyCode.K) && bossLoopActive)
+        {
+
+            hitCounter = maxHealth - 1;
+        }
 
         // makes sure enemy is on screen before firing
         if (rb.position.y > VertPosition)
@@ -261,6 +270,7 @@ public class BossLogic : MonoBehaviour
     IEnumerator BossDeath() //Trigger the Bosses death and end the game.
     {
         bossLoopActive = false;
+        ddm.score += 35000;
         Destroy(gameObject.GetComponent<PolygonCollider2D>());
 
         yield return new WaitForSeconds(5f);
@@ -477,4 +487,8 @@ public class BossLogic : MonoBehaviour
             yield return new WaitForSeconds(0.6f);
         }
     }
+
+
 }
+
+

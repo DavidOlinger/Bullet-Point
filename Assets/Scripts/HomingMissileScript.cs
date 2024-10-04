@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.WSA;
 
 public class HomingMissileScript : MonoBehaviour
 {
@@ -77,4 +76,5 @@ public class HomingMissileScript : MonoBehaviour
         Debug.Log("basevector "+baseVector +", launchangle "+ launchAngle +", dirvector "+ dirVector +", launchvel "+ launchVel);
         rb.velocity.Set((dirVector * launchVel).x, (dirVector * launchVel).y);
     }
+
 }
