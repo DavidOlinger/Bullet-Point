@@ -1288,7 +1288,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: b21221f9450b7314b96d69632e999b22, type: 3}
     - target: {fileID: 5285645008542212365, guid: 58de3f030cc96514db4494d2168ce198, type: 3}
       propertyPath: maxHealth
-      value: 600
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 5285645008542212365, guid: 58de3f030cc96514db4494d2168ce198, type: 3}
       propertyPath: mineSound
